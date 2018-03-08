@@ -1,11 +1,12 @@
 FROM fedora:27 as stage
 
-ADD VMware-VMvisor-Installer-201701001-4887370.x86_64.iso /esxi.iso
-
 SHELL ["/usr/bin/bash", "-euxvc"]
 
 RUN dnf install -y p7zip-plugins glibc.i686 zlib.i686 xz; \
     dnf clean all
+
+ARG ISO_IMAGE=VMware-VMvisor-Installer-201701001-4887370.x86_64.iso
+ADD ${ISO_IMAGE} /esxi.iso
 
 RUN 7z x /esxi.iso -o/esxi_gzip; \
     # Apparently gzip is super stupid
