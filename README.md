@@ -9,7 +9,7 @@ docker image. BYOD - Build Your Own Docker (image).
 
 1. Download the esxi iso using https://my.vmware.com/en/group/vmware/evalcenter?p=free-esxi6.
 Note: [this](https://my.vmware.com/group/vmware/details?productId=614&downloadGroup=ESXI650A)
-link did not work for me for some reason
+link did not work for me for some reason, but [this](https://my.vmware.com/group/vmware/info/slug/datacenter_cloud_infrastructure/vmware_vsphere_hypervisor_esxi/6_5) link will let you choose from the different versions
 2. Place the iso in **same** directory as the Dockerfile
 3. Run `docker-compose build`
 4. And now, you have an esxi base image. `andyneff/esxi`
