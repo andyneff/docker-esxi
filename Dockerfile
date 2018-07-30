@@ -34,7 +34,7 @@ RUN for x in /esxi_gunzip/*.vxz; do \
       xzcat "${x}" > "${x%.*}.vtar"; \
     done
 
-ADD extract_vmtar.py /
+ADD extract_vmtar.py /extract_vmtar.py
 RUN set +e; \
     for vtar in /esxi_gunzip/S.V00.vtar /esxi_gunzip/S?.V00.vtar; do \
       [ -e "$vtar" ] || continue; \
