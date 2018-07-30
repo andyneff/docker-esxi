@@ -5,3 +5,105 @@ services:
     image: andyneff/esxi
     build:
       context: .
+  esxi65:
+    image: andyneff/esxi:65
+    build:
+      args:
+        - ISO_IMAGE=VMware-VMvisor-Installer-201701001-4887370.x86_64.iso
+      context: .
+  esxi6:
+    image: andyneff/esxi:6
+    build:
+      args:
+        - ISO_IMAGE=VMware-VMvisor-Installer-201507001-2809209.x86_64.iso
+      context: .
+  esxi6u2:
+    image: andyneff/esxi:6u2
+    build:
+      args:
+        - ISO_IMAGE=VMware-VMvisor-Installer-6.0.0.update02-3620759.x86_64.iso
+      context: .
+  esxi6u1:
+    image: andyneff/esxi:6u1
+    build:
+      args:
+        - ISO_IMAGE=VMware-VMvisor-Installer-6.0.0.update01-3029758.x86_64.iso
+      context: .
+  esxi55u3b:
+    image: andyneff/esxi:55u3b
+    build:
+      args:
+        - ISO_IMAGE=VMware-VMvisor-Installer-201512001-3248547.x86_64.iso
+      context: .
+  esxi55u3a:
+    image: andyneff/esxi:55u3a
+    build:
+      args:
+        - ISO_IMAGE=VMware-VMvisor-Installer-5.5.0.update03-3116895.x86_64.iso
+      context: .
+  esxi55u2:
+    image: andyneff/esxi:55u2
+    build:
+      args:
+        - ISO_IMAGE=VMware-VMvisor-Installer-201501001-2403361.x86_64.iso
+      context: .
+  esxi55u1:
+    image: andyneff/esxi:55u1
+    build:
+      args:
+        - ISO_IMAGE=VMware-VMvisor-Installer-5.5.0.update01-1623387.x86_64.iso
+      context: .
+  esxi55:
+    image: andyneff/esxi:55
+    build:
+      args:
+        - ISO_IMAGE=VMware-VMvisor-Installer-5.5.0-1331820.x86_64.iso
+      context: .
+  esxi51u3:
+    image: andyneff/esxi:51u3
+    build:
+      args:
+        - ISO_IMAGE=VMware-VMvisor-Installer-5.1.0.update03-2323236.x86_64.iso
+      context: .
+  esxi51u2:
+    image: andyneff/esxi:51u2
+    build:
+      args:
+        - ISO_IMAGE=VMware-VMvisor-Installer-5.1.0.update02-1483097.x86_64.iso
+      context: .
+  esxi51u1:
+    image: andyneff/esxi:51u1
+    build:
+      args:
+        - ISO_IMAGE=VMware-VMvisor-Installer-5.1.0.update01-1065491.x86_64.iso
+      context: .
+  esxi51:
+    image: andyneff/esxi:51
+    build:
+      args:
+        - ISO_IMAGE=VMware-VMvisor-Installer-5.1.0-799733.x86_64.iso
+      context: .
+  esxi5u3:
+    image: andyneff/esxi:5u3
+    build:
+      args:
+        - ISO_IMAGE=VMware-VMvisor-Installer-5.0.0.update03-1311175.x86_64.iso
+      context: .
+  esxi5u2:
+    image: andyneff/esxi:5u2
+    build:
+      args:
+        - ISO_IMAGE=VMware-VMvisor-Installer-5.0.0.update02-914586.x86_64.iso
+      context: .
+  esxi5u1:
+    image: andyneff/esxi:5u1
+    build:
+      args:
+        - ISO_IMAGE=VMware-VMvisor-Installer-5.0.0.update01-623860.x86_64.iso
+      context: .
+  esxi5:
+    image: andyneff/esxi:5
+    build:
+      args:
+        - ISO_IMAGE=VMware-VMvisor-Installer-5.0.0-469512.x86_64.iso
+      context: .
