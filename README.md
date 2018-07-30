@@ -13,11 +13,11 @@ link did not work for me for some reason, but [this](https://my.vmware.com/group
 3. Run `docker-compose build --build-arg ISO_IMAGE=my_image_filename.iso`.
     - For example if the iso you download is called `VMware-VMvisor-Installer-6.0.0.update02-3620759.x86_64.iso`, then you should run the command:
 
-      docker-compose build --build-arg ISO_IMAGE=VMware-VMvisor-Installer-6.0.0.update02-3620759.x86_64.iso
+          docker-compose build --build-arg ISO_IMAGE=VMware-VMvisor-Installer-6.0.0.update02-3620759.x86_64.iso
 
     - Also acceptable:
 
-      docker build --build-arg ISO_IMAGE=VMware-VMvisor-Installer-6.0.0.update02-3620759.x86_64.iso -t andyneff/esxi .
+          docker build --build-arg ISO_IMAGE=VMware-VMvisor-Installer-6.0.0.update02-3620759.x86_64.iso -t andyneff/esxi .
       
     - Not this can only be a relative path to the docker context. No absolute path will work.
 
