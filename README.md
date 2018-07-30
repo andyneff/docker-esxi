@@ -27,6 +27,10 @@ link did not work for me for some reason, but [this](https://my.vmware.com/group
 
 I have no idea how much of this ESXi image works. It is mainly a proof of concept, but I do use this to build a ESXi plugin [here](https://github.com/andyneff/esxi-nut/blob/master/Dockerfile)
 
+# Issues
+
+On some versions of `Docker for Windows`, building the images just freezes on the step `Step 14/17 : COPY --from=stage /esxi /`
+
 # Thanks
 
 Special thanks to [William Lam](https://www.virtuallyghetto.com/2011/08/how-to-create-and-modify-vgz-vmtar.html)
