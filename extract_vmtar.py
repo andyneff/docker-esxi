@@ -12,6 +12,7 @@ with open(sys.argv[1], 'rb') as fid:
   data=b'DEADBEEF'
   while data and data[0] != 0 and not data.startswith(bytes(sys.argv[2], 'ascii') + b'\x00'):
     data = fid.read(512)
+    # Uncomment this line to add a "tell" to vmtar
     # print(data[0:100].decode('ascii').strip('\x00'))
 
   if not data or data[0] == 0:

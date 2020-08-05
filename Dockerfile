@@ -1,4 +1,4 @@
-FROM fedora:27 as stage
+FROM fedora:32 as stage
 
 SHELL ["/usr/bin/bash", "-euxvc"]
 
@@ -8,7 +8,7 @@ RUN dnf install -y p7zip-plugins glibc.i686 zlib.i686 xz libxml2.i686; \
 ARG ISO_IMAGE=VMware-VMvisor-Installer-201701001-4887370.x86_64.iso
 ADD ${ISO_IMAGE} /esxi.iso
 
-# Extract all the files from the ISO, and gunzip all the zip files 
+# Extract all the files from the ISO, and gunzip all the zip files
 RUN 7z x /esxi.iso -o/esxi_gzip; \
     # Apparently gzip is super stupid
     zforce /esxi_gzip/* || :; \
@@ -31,7 +31,11 @@ RUN for x in /esxi_gunzip/*-psigned; do \
 
 RUN for x in /esxi_gunzip/*.vxz; do \
       [ -e "$x" ] || continue; \
-      xzcat "${x}" > "${x%.*}.vtar"; \
+      # I'm allowing this to "fail" because I suspect they are adding a signature
+      # Specifically 256 Characters added to the end, starting with vmware_esx67Z
+      # both 7z and xzcat error, but appear to be successful, just complaining
+      # about the extra 256 bytes
+      xzcat "${x}" > "${x%.*}.vtar" || : ; \
     done
 
 ADD extract_vmtar.py /extract_vmtar.py
@@ -43,6 +47,7 @@ RUN set +e; \
       python3 extract_vmtar.py "${vtar}" lib/libvmlibs.so /lib/libvmlibs.so; \
       python3 extract_vmtar.py "${vtar}" lib/libgcc_s.so.1 /lib/libgcc_s.so.1; \
     done; \
+    # /usr/bin/vmtar should exist by now
     chmod 755 /usr/bin/vmtar
 
 RUN mkdir -p /esxi_tar/; \
